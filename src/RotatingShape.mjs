@@ -1,6 +1,6 @@
 export class RotatingShape {
     constructor(grid) {
-        this.grid = grid;
+        this.grid = Object.freeze(grid.map(row => Object.freeze([...row])));
     }
 
     static fromString(shapeString) {
