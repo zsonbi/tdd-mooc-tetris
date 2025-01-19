@@ -18,6 +18,15 @@ export class Tetromino {
     ['.','.','.','.','.'],
   ],1);
 
+  static I_SHAPE2 = new Tetromino([
+    ['.','.','I','.','.'],
+    ['.','.','I','.','.'],
+    ['.','.','I','.','.'],
+    ['.','.','I','.','.'],
+    ['.','.','.','.','.'],
+  ],1);
+
+
 
   rotateRight() {
     let gridSize = this.grid.length;
