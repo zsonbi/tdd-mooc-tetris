@@ -33,7 +33,9 @@ export class Board {
       for (let j = this.currentBlockHeight; j < block.grid.length+this.currentBlockHeight; j++) {
         if(this.currentBlock[j][col] !== '.'){
           if(this.grid[j][i] !=='.'){
-            this.currentBlock=null;this.currentBlockHeight=0;return;
+            this.currentBlock=null;
+            this.currentBlockHeight=0;
+            return;
           }
         }
       }
