@@ -29,7 +29,16 @@ export class Board {
       return;
     }
     let col = 0;
-    
+    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
+      for (let j = this.currentBlockHeight; j < block.grid.length+this.currentBlockHeight; j++) {
+        if(this.currentBlock[j][col] !== '.'){
+          if(this.grid[j][i] !=='.'){
+            this.currentBlock=null;this.currentBlockHeight=0;return;
+          }
+        }
+      }
+      col += 1;
+    }
 
   }
 
