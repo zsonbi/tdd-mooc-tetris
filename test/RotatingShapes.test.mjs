@@ -26,13 +26,13 @@ describe("Rotating 3x3 shape", () => {
     );
   });
 
-  // test.skip("can be rotated left/counter-clockwise", () => {
-  //   expect(shape.rotateLeft().toString()).to.equalShape(
-  //     `CFI
-  //      BEH
-  //      ADG`
-  //   );
-  // });
+  test.skip("can be rotated left/counter-clockwise", () => {
+    expect(shape.rotateLeft().toString()).to.equalShape(
+      `CFI
+       BEH
+       ADG`
+    );
+  });
 });
 
 

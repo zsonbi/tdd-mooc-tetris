@@ -23,4 +23,14 @@ export class RotatingShape {
         const rotated = new RotatingShape(rotatedGrid)
         return rotated;
     }
+
+    rotateLeft(){
+        gridSize = this.grid.size;
+        rotatedGrid=Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                rotatedGrid[size - col - 1][row] = this.grid[row][col];}}
+        const rotated = new RotatingShape(rotatedGrid)
+        return rotated;
+    }
 }
