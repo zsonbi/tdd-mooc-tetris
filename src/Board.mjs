@@ -41,6 +41,15 @@ export class Board {
       }
       col += 1;
     }
+    col = 0;
+    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
+      for (let j = this.currentBlockHeight-1; j < block.grid.length+this.currentBlockHeight-1; j++) {
+        if(this.currentBlock[j][col] !== '.'){
+            this.grid[j][i]=='.';
+        }
+      }
+      col += 1;
+    }
 
   }
 
