@@ -11,4 +11,14 @@ export class RotatingShape {
     toString() {
         return this.grid.map(row => row.join('')).join('\n')+'\n';
     }
+
+    rotateRight(){
+        gridSize = this.grid.size;
+        rotatedGrid=Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                rotatedGrid[col][gridSize - row - 1] = this.grid[row][col];}}
+        const rotated = new RotatingShape(rotatedGrid)
+        return rotated;
+    }
 }
