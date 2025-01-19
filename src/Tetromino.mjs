@@ -52,7 +52,12 @@ export class Tetromino {
     return new Tetromino(this.grid,this.type);
   }
   else if(this.type===1){
-
+    if(grid[3][0]=='I'){
+      return I_SHAPE2;
+    }
+    else{
+      return I_SHAPE;
+    }
   }
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
