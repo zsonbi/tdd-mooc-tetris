@@ -9,6 +9,14 @@ export class Tetromino {
     ['.', '.', '.'],
   ]);
 
+  static I_SHAPE = new Tetromino([
+    ['.','.','.','.','.'],
+    ['.','.','.','.','.'],
+    ['I','I','I','I','.'],
+    ['.','.','.','.','.'],
+    ['.','.','.','.','.'],
+  ]);
+
   rotateRight() {
     let gridSize = this.grid.length;
     let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
