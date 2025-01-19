@@ -29,9 +29,9 @@ export class Board {
       return;
     }
     let col = 0;
-    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
-      for (let j = this.currentBlockHeight; j < block.grid.length+this.currentBlockHeight; j++) {
-        if(this.currentBlock[j][col] !== '.'){
+    for (let i = Math.floor(this.width / 2 - this.currentBlock.grid.length / 2); i < Math.floor(this.width / 2 + this.currentBlock.grid.length / 2); i++) {
+      for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
+        if(this.currentBlock.grid[j][col] !== '.'){
           if(this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
@@ -42,18 +42,18 @@ export class Board {
       col += 1;
     }
     col = 0;
-    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
-      for (let j = this.currentBlockHeight-1; j < block.grid.length+this.currentBlockHeight-1; j++) {
-        if(this.currentBlock[j][col] !== '.'){
+    for (let i = Math.floor(this.width / 2 - this.currentBlock.grid.length / 2); i < Math.floor(this.width / 2 + this.currentBlock.grid.length / 2); i++) {
+      for (let j = this.currentBlockHeight-1; j < this.currentBlock.grid.length+this.currentBlockHeight-1; j++) {
+        if(this.currentBlock.grid[j][col] !== '.'){
             this.grid[j][i]=='.';
         }
       }
       col += 1;
     }
     col = 0;
-    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
-      for (let j = this.currentBlockHeight-1; j < block.grid.length+this.currentBlockHeight-1; j++) {
-        if(this.currentBlock[j][col] !== '.'){
+    for (let i = Math.floor(this.width / 2 - this.currentBlock.grid.length / 2); i < Math.floor(this.width / 2 + this.currentBlock.grid.length / 2); i++) {
+      for (let j = this.currentBlockHeight-1; j < this.currentBlock.grid.length+this.currentBlockHeight-1; j++) {
+        if(this.currentBlock.grid[j][col] !== '.'){
           this.grid[j][i] = block.grid[j][col];
         }
       }
