@@ -25,10 +25,15 @@ export class Tetromino {
     ['.','.','I','.','.'],
     ['.','.','.','.','.'],
   ],1);
-
-
-
+  static O_SHAPE = new Tetromino([
+    ['.','O','O'],
+    ['.','O','O'],
+    ['.','.','.'],
+  ],2);
   rotateRight() {
+    if(this.type === 2){
+      return new Tetromino(this.grid,this.type);
+    }
     let gridSize = this.grid.length;
     let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
      for (let row = 0; row < gridSize; row++) {
@@ -40,6 +45,7 @@ export class Tetromino {
   }
   
  rotateLeft() {
+
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
    for (let row = 0; row < gridSize; row++) {
