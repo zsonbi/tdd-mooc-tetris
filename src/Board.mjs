@@ -11,13 +11,6 @@ export class Board {
 
 
   toString() {
-    let res="";
-    for (let i = 0; i < this.height; i++) {
-      for (let j = 0; j < this.width; j++) {
-        res+=this.grid[i][j];
-      }
-      res+="\n";
-    }
-    return res;
+    return this.grid.map(row => row.join('')).join('\n')+'\n';
   }
 }

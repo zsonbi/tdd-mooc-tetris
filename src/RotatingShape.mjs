@@ -9,6 +9,6 @@ export class RotatingShape {
     }
 
     toString() {
-        return 'ABC\nDEF\nGHI\n';
+        return this.grid.map(row => row.join('')).join('\n')+'\n';
     }
 }
