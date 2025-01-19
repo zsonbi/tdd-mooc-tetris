@@ -4,6 +4,8 @@ export class Board {
   width;
   height;
   grid;
+  currentBlock;
+  currentBlockHeight;
   constructor(width, height) {
     this.width = width;
     this.height = height;
@@ -11,7 +13,8 @@ export class Board {
   }
 
   drop(block) {
-    let col = 0
+    this.currentBlock=block;
+    let col = 0;
     for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
       for (let j = 0; j < block.grid.length; j++) {
         this.grid[j][i] = block.grid[j][col];
@@ -21,7 +24,8 @@ export class Board {
   }
 
   tick(){
-    
+
+
   }
 
 
