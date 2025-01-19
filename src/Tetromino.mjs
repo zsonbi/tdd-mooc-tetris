@@ -1,13 +1,14 @@
 export class Tetromino {
-  constructor(grid) {
+  constructor(grid, type) {
     this.grid = Object.freeze(grid.map(row => Object.freeze([...row])));
+    this.type=type
   }
 
   static T_SHAPE = new Tetromino([
     ['.', 'T', '.'],
     ['T', 'T', 'T'],
     ['.', '.', '.'],
-  ]);
+  ],0);
 
   static I_SHAPE = new Tetromino([
     ['.','.','.','.','.'],
@@ -15,7 +16,8 @@ export class Tetromino {
     ['I','I','I','I','.'],
     ['.','.','.','.','.'],
     ['.','.','.','.','.'],
-  ]);
+  ],1);
+
 
   rotateRight() {
     let gridSize = this.grid.length;
