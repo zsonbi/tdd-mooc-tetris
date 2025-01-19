@@ -13,10 +13,10 @@ export class RotatingShape {
     }
 
     rotateRight() {
-        gridSize = this.grid.size;
-        rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
-        for (let row = 0; row < size; row++) {
-            for (let col = 0; col < size; col++) {
+       let gridSize = this.grid.length;
+       let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
+        for (let row = 0; row < gridSize; row++) {
+            for (let col = 0; col < gridSize; col++) {
                 rotatedGrid[col][gridSize - row - 1] = this.grid[row][col];
             }
         }
@@ -25,11 +25,11 @@ export class RotatingShape {
     }
 
     rotateLeft() {
-        gridSize = this.grid.size;
-        rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
-        for (let row = 0; row < size; row++) {
-            for (let col = 0; col < size; col++) {
-                rotatedGrid[size - col - 1][row] = this.grid[row][col];
+        let gridSize = this.grid.length;
+        const rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
+        for (let row = 0; row < gridSize; row++) {
+            for (let col = 0; col < gridSize; col++) {
+                rotatedGrid[gridSize - col - 1][row] = this.grid[row][col];
             }
         }
         const rotated = new RotatingShape(rotatedGrid)
