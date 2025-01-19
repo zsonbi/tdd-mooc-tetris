@@ -14,6 +14,7 @@ export class Board {
 
   drop(block) {
     this.currentBlock=block;
+    this.currentBlockHeight=0;
     let col = 0;
     for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
       for (let j = 0; j < block.grid.length; j++) {
@@ -24,7 +25,11 @@ export class Board {
   }
 
   tick(){
-
+    if(this.currentBlock===null){
+      return;
+    }
+    let col = 0;
+    
 
   }
 
