@@ -12,13 +12,12 @@ export class Board {
 
   drop(block) {
     let col = 0
-    for (let i = this.width / 2 - block.grid.length / 2; i < this.width / 2 + block.grid.length / 2; i++) {
+    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
       for (let j = 0; j < block.grid.length; j++) {
         this.grid[j][i] = block.grid[j][col];
       }
       col += 1;
     }
-
   }
 
   toString() {
