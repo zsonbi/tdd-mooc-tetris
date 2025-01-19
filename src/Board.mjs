@@ -20,6 +20,11 @@ export class Board {
     }
   }
 
+  tick(){
+    
+  }
+
+
   toString() {
     return this.grid.map(row => row.join('')).join('\n') + '\n';
   }
