@@ -7,19 +7,21 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.grid=Array.from({ length: this.height }, () => Array(this.width).fill('.'));
+    this.grid = Array.from({ length: this.height }, () => Array(this.width).fill('.'));
   }
 
-  drop(block){
-    let col=0
-    for (let i = this.width/2-block.grid.length/2; i < this.width; i++) {
-      col+=1;
+  drop(block) {
+    let col = 0
+    for (let i = this.width / 2 - block.grid.length / 2; i < this.width / 2 + block.grid.length / 2; i++) {
       for (let j = 0; j < block.grid.length; j++) {
-        this.grid[j][i]=block.grid[j][col];}
+        this.grid[j][i] = block.grid[j][col];
+      }
+      col += 1;
     }
+
   }
 
   toString() {
-    return this.grid.map(row => row.join('')).join('\n')+'\n';
+    return this.grid.map(row => row.join('')).join('\n') + '\n';
   }
 }
