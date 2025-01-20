@@ -32,6 +32,16 @@ export class Board {
     }
   }
 
+  clean(rowOffset, colOffset, block){
+    let col = 0;
+    let row=0;
+    for (let i = colOffset; i < colOffset + block.grid.length; i++) {
+      row=0;
+
+      col += 1;
+    }
+  }
+
   tick(){
     if(this.currentBlock===null){
       return;
