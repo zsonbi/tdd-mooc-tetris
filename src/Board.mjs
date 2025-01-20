@@ -98,14 +98,7 @@ export class Board {
     //       if(j>=this.grid.length || this.grid[j][i] !=='.'){
     //         this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
     //         this.currentBlock=null;
-    //         this.currentBlockHeight=0;
-    //         return;
-    //       }
-    //     }
-    //     row++;
-    //   }
-    //   col++;
-    // }
+
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
 
