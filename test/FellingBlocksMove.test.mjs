@@ -54,6 +54,52 @@ describe("Falling tetrominoes move", () => {
        ..........`
     );
   });
+
+  test("Move down bottom", () => {
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 10; i++) {
+      board.move('d');
+    }
+    expect(board.toString()).to.equalShape(
+      `
+       ..........
+       ..........
+       ..........
+       ..........
+       ....T.....
+       ...TTT....`
+    );
+  });
   
+  test("Move right till wall", () => {
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 10; i++) {
+      board.move('r');
+    }
+    expect(board.toString()).to.equalShape(
+      `........T.
+       .......TTT
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
+  test("Move left till wall", () => {
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 10; i++) {
+      board.move('l');
+    }
+    expect(board.toString()).to.equalShape(
+      `.T........
+       TTT.......
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
 });
 

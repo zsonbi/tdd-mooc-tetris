@@ -57,10 +57,10 @@ export class Board {
   }
 
   validate(rowOffset, colOffset, block){
-    if(rowOffset<0 || rowOffset>=this.grid.length){
+    if(rowOffset<0 || rowOffset>=this.height){
       return false;
     }
-    if(colOffset<0 || colOffset>=this.grid.length){
+    if(colOffset<0 || colOffset>=this.width){
       return false;
     }
 
@@ -69,7 +69,7 @@ export class Board {
       let row=0;
       for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
         if(block.grid[row][col] !== '.'){
-          if(j>=this.grid.length || this.grid[j][i] !=='.'){
+          if(j>=this.height || i>=this.width || this.grid[j][i] !=='.'){
             return false;
           }
         }
@@ -96,6 +96,7 @@ export class Board {
       this.currentBlockHeight++;
     }
     if(!this.validate(this.currentBlockHeight,this.currentColOffset,this.currentBlock)){
+      console.log("move validation failed: "+ dir +"current row"+this.currentBlockHeight+ " currentcol"+this.currentColOffset);
       if(dir==='l'){
         this.currentColOffset++;
       }
