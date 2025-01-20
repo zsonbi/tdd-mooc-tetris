@@ -104,6 +104,10 @@ export class Board {
       }
       if(dir==='d'){
         this.currentBlockHeight--;
+        this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+        this.currentBlock=null;
+        this.currentBlockHeight=0;
+        return;
       }
     }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
