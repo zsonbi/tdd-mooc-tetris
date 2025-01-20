@@ -37,7 +37,12 @@ export class Board {
     let row=0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row=0;
-
+      for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
+        if(this.currentBlock.grid[row][col] !== '.'){
+            this.grid[j][i]='.';
+        }
+        row++;
+      }
       col += 1;
     }
   }
