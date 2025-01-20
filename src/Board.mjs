@@ -53,16 +53,7 @@ export class Board {
     }
     let col = 0;
     let row=0;
-    for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
-      row=0;
-      for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
-        if(this.currentBlock.grid[row][col] !== '.'){
-            this.grid[j][i]='.';
-        }
-        row++;
-      }
-      col += 1;
-    }
+    this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
     this.currentBlockHeight+=1;
     console.log("passed"+this.currentBlockHeight)
 
