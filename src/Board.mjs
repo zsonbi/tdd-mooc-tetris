@@ -26,6 +26,9 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row = 0;
       for (let j = rowOffset; j < rowOffset+block.grid.length; j++) {
+        console.log(this.grid.length)
+        if(j>=this.grid.row){continue;
+        }
         this.grid[j][i] = block.grid[row][col];
         row++;
       }
@@ -39,6 +42,9 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row=0;
       for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
+        if(j>=this.grid.row){
+          continue;
+        }
         if(this.currentBlock.grid[row][col] !== '.'){
             this.grid[j][i]='.';
         }
@@ -62,8 +68,10 @@ export class Board {
     for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + this.currentBlock.grid.length); i++) {
       row=0;
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
+        console.log(j+" "+i+" rowcol"+row+" "+col)
+        
         if(this.currentBlock.grid[row][col] !== '.'){
-          if(this.grid[j][i] !=='.'){
+          if(j>=this.grid.length || this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
             this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
@@ -74,7 +82,7 @@ export class Board {
       }
       col += 1;
     }
-    
+    console.log("passed2.0")
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
 
   }
