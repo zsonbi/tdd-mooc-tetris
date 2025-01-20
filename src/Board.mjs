@@ -57,6 +57,13 @@ export class Board {
   }
 
   validate(rowOffset, colOffset, block){
+    if(rowOffset<0 || rowOffset>=this.grid.length){
+      return false;
+    }
+    if(colOffset<0 || colOffset>=this.grid.length){
+      return false;
+    }
+
     let col = 0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       let row=0;
