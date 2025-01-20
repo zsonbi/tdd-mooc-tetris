@@ -27,12 +27,14 @@ export class Board {
   }
 
   place(rowOffset, colOffset, block){
-    let col = 0;let row = 0;
+    let col = 0;
+    let row = 0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row = 0;
       for (let j = rowOffset; j < rowOffset+block.grid.length; j++) {
         this.grid[j][i] = block.grid[row][col];row++;
-      }col++;
+      }
+      col++;
     }
   }
 
