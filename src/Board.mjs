@@ -6,6 +6,7 @@ export class Board {
   grid;
   currentBlock;
   currentBlockHeight;
+  currentColOffset;
   constructor(width, height) {
     this.width = width;
     this.height = height;
@@ -15,8 +16,9 @@ export class Board {
   drop(block) {
     this.currentBlock=block;
     this.currentBlockHeight=0;
+    this.currentColOffset=Math.floor(this.width / 2 - block.grid.length / 2)
     let col = 0;
-    for (let i = Math.floor(this.width / 2 - block.grid.length / 2); i < Math.floor(this.width / 2 + block.grid.length / 2); i++) {
+    for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + block.grid.length); i++) {
       for (let j = 0; j < block.grid.length; j++) {
         this.grid[j][i] = block.grid[j][col];
       }
@@ -35,6 +37,7 @@ export class Board {
           if(this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
+            console.log("exited"+i+" "+j);
             return;
           }
         }
