@@ -29,7 +29,9 @@ export class Board {
         if(j>=this.grid.length){
           continue;
         }
+        if(block.grid[row][col]!=='.'){
         this.grid[j][i] = block.grid[row][col];
+        }
         row++;
       }
       col++;
@@ -61,14 +63,12 @@ export class Board {
     let col = 0;
     let row=0;
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
-    this.currentBlockHeight+=1;
-    console.log("passed"+this.currentBlockHeight)
+    this.currentBlockHeight++;
 
     col = 0;
     for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
       row=0;
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
-        console.log(j+" "+i+" rowcol"+row+" "+col)
         
         if(this.currentBlock.grid[row][col] !== '.'){
           if(j>=this.grid.length || this.grid[j][i] !=='.'){
@@ -80,11 +80,9 @@ export class Board {
         }
         row++;
       }
-      col += 1;
+      col++;
     }
-    console.log("passed2.0")
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
-
   }
 
 
