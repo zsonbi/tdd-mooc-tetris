@@ -31,13 +31,21 @@ export class Board {
       return;
     }
     let col = 0;
-    for (let i = Math.floor(this.width / 2 - this.currentBlock.grid.length / 2); i < Math.floor(this.width / 2 + this.currentBlock.grid.length / 2); i++) {
+    for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
+      for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
+        if(this.currentBlock.grid[j][col] !== '.'){
+            this.grid[j][i]='.';
+        }
+      }
+      col += 1;
+    }
+    col = 0;
+    for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + this.currentBlock.grid.length); i++) {
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
         if(this.currentBlock.grid[j][col] !== '.'){
           if(this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
-            console.log("exited"+i+" "+j);
             return;
           }
         }
@@ -48,7 +56,7 @@ export class Board {
     for (let i = Math.floor(this.width / 2 - this.currentBlock.grid.length / 2); i < Math.floor(this.width / 2 + this.currentBlock.grid.length / 2); i++) {
       for (let j = this.currentBlockHeight-1; j < this.currentBlock.grid.length+this.currentBlockHeight-1; j++) {
         if(this.currentBlock.grid[j][col] !== '.'){
-            this.grid[j][i]=='.';
+            this.grid[j][i]='.';
         }
       }
       col += 1;
