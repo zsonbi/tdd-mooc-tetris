@@ -56,6 +56,23 @@ export class Board {
     }
   }
 
+  validate(rowOffset, colOffset, block){
+    let col = 0;
+    for (let i = colOffset; i < colOffset + block.grid.length; i++) {
+      let row=0;
+      for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
+        if(block.grid[row][col] !== '.'){
+          if(j>=this.grid.length || this.grid[j][i] !=='.'){
+            return false;
+          }
+        }
+        row++;
+      }
+      col++;
+    }
+    return true;
+  }
+
   tick(){
     if(this.currentBlock===null){
       return;
