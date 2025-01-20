@@ -73,6 +73,11 @@ export class Board {
     return true;
   }
 
+  move(dir){
+
+    
+  }
+
   tick(){
     if(this.currentBlock===null){
       return;
