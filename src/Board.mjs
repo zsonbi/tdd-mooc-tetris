@@ -17,13 +17,7 @@ export class Board {
     this.currentBlock=block;
     this.currentBlockHeight=0;
     this.currentColOffset=Math.floor(this.width / 2 - block.grid.length / 2)
-    let col = 0;
-    for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + block.grid.length); i++) {
-      for (let j = 0; j < block.grid.length; j++) {
-        this.grid[j][i] = block.grid[j][col];
-      }
-      col += 1;
-    }
+    this.place(0,this.currentColOffset,block);
   }
 
   place(rowOffset, colOffset, block){
