@@ -26,7 +26,8 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row = 0;
       for (let j = rowOffset; j < rowOffset+block.grid.length; j++) {
-        this.grid[j][i] = block.grid[row][col];row++;
+        this.grid[j][i] = block.grid[row][col];
+        row++;
       }
       col++;
     }
@@ -65,6 +66,7 @@ export class Board {
           if(this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
+            this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
             return;
           }
         }
@@ -73,6 +75,7 @@ export class Board {
       col += 1;
     }
     
+    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
 
   }
 
