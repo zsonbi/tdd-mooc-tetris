@@ -31,24 +31,32 @@ export class Board {
       return;
     }
     let col = 0;
+    let row=0;
     for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
+      row=0;
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
-        if(this.currentBlock.grid[j][col] !== '.'){
+        if(this.currentBlock.grid[row][col] !== '.'){
             this.grid[j][i]='.';
         }
+        row++;
       }
       col += 1;
     }
+    this.currentBlockHeight+=1;
+    console.log("passed"+this.currentBlockHeight)
+
     col = 0;
     for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + this.currentBlock.grid.length); i++) {
+      row=0;
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
-        if(this.currentBlock.grid[j][col] !== '.'){
+        if(this.currentBlock.grid[row][col] !== '.'){
           if(this.grid[j][i] !=='.'){
             this.currentBlock=null;
             this.currentBlockHeight=0;
             return;
           }
         }
+        row++;
       }
       col += 1;
     }
