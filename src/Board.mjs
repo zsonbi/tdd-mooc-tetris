@@ -74,8 +74,32 @@ export class Board {
   }
 
   move(dir){
+    if(this.currentBlock===null){
+      return;
+    }
+    this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
 
-    
+    if(dir==='l'){
+      this.currentColOffset--;
+    }
+    if(dir==='r'){
+      this.currentColOffset++;
+    }
+    if(dir==='d'){
+      this.currentBlockHeight++;
+    }
+    if(!this.validate(this.currentBlockHeight,this.currentColOffset,this.currentBlock)){
+      if(dir==='l'){
+        this.currentColOffset++;
+      }
+      if(dir==='r'){
+        this.currentColOffset--;
+      }
+      if(dir==='d'){
+        this.currentBlockHeight--;
+      }
+    }
+    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
 
   tick(){
