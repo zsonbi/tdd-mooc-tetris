@@ -26,8 +26,8 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row = 0;
       for (let j = rowOffset; j < rowOffset+block.grid.length; j++) {
-        console.log(this.grid.length)
-        if(j>=this.grid.row){continue;
+        if(j>=this.grid.length){
+          continue;
         }
         this.grid[j][i] = block.grid[row][col];
         row++;
@@ -42,7 +42,7 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row=0;
       for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
-        if(j>=this.grid.row){
+        if(j>=this.grid.length){
           continue;
         }
         if(this.currentBlock.grid[row][col] !== '.'){
@@ -65,16 +65,16 @@ export class Board {
     console.log("passed"+this.currentBlockHeight)
 
     col = 0;
-    for (let i = this.currentColOffset; i < Math.floor(this.currentColOffset + this.currentBlock.grid.length); i++) {
+    for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
       row=0;
       for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
         console.log(j+" "+i+" rowcol"+row+" "+col)
         
         if(this.currentBlock.grid[row][col] !== '.'){
           if(j>=this.grid.length || this.grid[j][i] !=='.'){
+            this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
             this.currentBlock=null;
             this.currentBlockHeight=0;
-            this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
             return;
           }
         }
