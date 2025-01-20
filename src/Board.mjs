@@ -89,16 +89,6 @@ export class Board {
       return;
     }
 
-    // col = 0;
-    // for (let i = this.currentColOffset; i < this.currentColOffset + this.currentBlock.grid.length; i++) {
-    //   row=0;
-    //   for (let j = this.currentBlockHeight; j < this.currentBlock.grid.length+this.currentBlockHeight; j++) {
-        
-    //     if(this.currentBlock.grid[row][col] !== '.'){
-    //       if(j>=this.grid.length || this.grid[j][i] !=='.'){
-    //         this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
-    //         this.currentBlock=null;
-
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
 
