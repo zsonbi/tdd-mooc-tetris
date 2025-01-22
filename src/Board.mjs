@@ -80,7 +80,7 @@ export class Board {
     if(rowOffset<0 || rowOffset>=this.height){
       return false;
     }
-    if(colOffset<0 || colOffset>=this.width){
+    if( colOffset>=this.width){
       return false;
     }
     let col = 0;
