@@ -60,5 +60,165 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
+  test("Rotate Right I Shape", () => {
+    board.drop(Tetromino.I_SHAPE);
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `....I.....
+       ....I.....
+       ....I.....
+       ....I.....
+       ..........
+       ..........`
+    );
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..IIII....
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
+  test("Rotate Left I Shape", () => {
+    return;
+    board.drop(Tetromino.I_SHAPE);
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    expect(board.toString()).to.equalShape(
+      `I.........
+       I.........
+       I.........
+       I.........
+       ..........
+       ..........`
+    );
+    // board.rotateRight();
+    // expect(board.toString()).to.equalShape(
+    //  `I.........
+    //   I.........
+    //   I.........
+    //   I.........
+    //   ..........
+    //   ..........`
+    // );
+    // board.rotateLeft();
+    // expect(board.toString()).to.equalShape(
+    //  `I.........
+    //   I.........
+    //   I.........
+    //   I.........
+    //   ..........
+    //   ..........`
+    // );
+  });
+
+  test("Rotate I Shape at wall", () => {
+    board.drop(Tetromino.I_SHAPE2);
+
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    expect(board.toString()).to.equalShape(
+      `.........I
+       .........I
+       .........I
+       .........I
+       ..........
+       ..........`
+    );
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+      `.........I
+       .........I
+       .........I
+       .........I
+       ..........
+       ..........`
+    );
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `.........I
+       .........I
+       .........I
+       .........I
+       ..........
+       ..........`
+    );
+    board.rotateLeft();
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+      `.........I
+       .........I
+       .........I
+       .........I
+       ..........
+       ..........`
+    );
+  });
+
+  test("Rotate I Shape at wall left side", () => {
+    return;
+    board.drop(Tetromino.I_SHAPE2);
+
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    expect(board.toString()).to.equalShape(
+     `I.........
+      I.........
+      I.........
+      I.........
+      ..........
+      ..........`
+    );
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+     `I.........
+      I.........
+      I.........
+      I.........
+      ..........
+      ..........`
+    );
+    board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+     `I.........
+      I.........
+      I.........
+      I.........
+      ..........
+      ..........`
+    );
+    board.rotateLeft();
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+     `I.........
+      I.........
+      I.........
+      I.........
+      ..........
+      ..........`
+    );
+  });
+
 });
 

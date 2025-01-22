@@ -61,7 +61,7 @@ export class Board {
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
-    if(this.validate(this.rowOffset,this.colOffset, this.currentBlock.rotateLeft())){
+    if(this.validate(this.currentBlockHeight,this.currentColOffset, this.currentBlock.rotateLeft())){
       this.currentBlock=this.currentBlock.rotateLeft();    
     }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
@@ -71,7 +71,7 @@ export class Board {
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
-    if(this.validate(this.rowOffset,this.colOffset, this.currentBlock.rotateRight())){
+    if(this.validate(this.currentBlockHeight,this.currentColOffset, this.currentBlock.rotateRight())){
       this.currentBlock=this.currentBlock.rotateRight();    
     }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
@@ -83,7 +83,6 @@ export class Board {
     if(colOffset<0 || colOffset>=this.width){
       return false;
     }
-
     let col = 0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       let row=0;
@@ -116,7 +115,6 @@ export class Board {
       this.currentBlockHeight++;
     }
     if(!this.validate(this.currentBlockHeight,this.currentColOffset,this.currentBlock)){
-      console.log("move validation failed: "+ dir +"current row"+this.currentBlockHeight+ " currentcol"+this.currentColOffset);
       if(dir==='l'){
         this.currentColOffset++;
       }
