@@ -94,7 +94,11 @@ export class Board {
       this.currentColOffset--;
       success=true;    
     }
-
+    if(!success && this.validate(this.currentBlockHeight,this.currentColOffset+1, this.currentBlock.rotateRight())){
+      this.currentBlock=this.currentBlock.rotateRight();
+      this.currentColOffset++;
+      success=true;    
+    }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
   validate(rowOffset, colOffset, block){
