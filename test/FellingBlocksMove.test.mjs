@@ -71,6 +71,26 @@ describe("Falling tetrominoes move", () => {
     );
   });
   
+  test("Move down bottom block already there", () => {
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 10; i++) {
+      board.move('d');
+    }
+    board.drop(Tetromino.T_SHAPE);
+    for (let i = 0; i < 10; i++) {
+      board.move('d');
+    }
+    expect(board.toString()).to.equalShape(
+      `
+       ..........
+       ..........
+       ....T.....
+       ...TTT....
+       ....T.....
+       ...TTT....`
+    );
+  });
+
   test("Move right till wall", () => {
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
