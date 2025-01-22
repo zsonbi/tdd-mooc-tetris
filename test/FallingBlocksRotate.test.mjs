@@ -3,6 +3,7 @@ import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
+import { RotatingShape } from "../src/RotatingShape.mjs";
 
 function fallToBottom(board) {
   for (let i = 0; i < 10; i++) {
@@ -38,6 +39,8 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
+
+
   test("Rotate Right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
@@ -54,6 +57,63 @@ describe("Falling tetrominoes rotate", () => {
       `..........
        ...TTT....
        ....T.....
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
+  test("Wall kick Right", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ....TT....
+       ....T.....
+       ..........
+       ..........
+       ..........`
+    );
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.move('r');
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `..........
+       .......TTT
+       ........T.
+       ..........
+       ..........
+       ..........`
+    );
+  });
+
+
+  test("Wall kick left", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ....TT....
+       ....T.....
+       ..........
+       ..........
+       ..........`
+    );
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.move('l');
+    board.rotateLeft();
+    expect(board.toString()).to.equalShape(
+      `.T........
+       TTT.......
+       ..........
        ..........
        ..........
        ..........`
@@ -82,88 +142,61 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
-  test("Rotate Left I Shape", () => {
-    return;
-    board.drop(Tetromino.I_SHAPE);
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    expect(board.toString()).to.equalShape(
-      `I.........
-       I.........
-       I.........
-       I.........
-       ..........
-       ..........`
-    );
-    // board.rotateRight();
-    // expect(board.toString()).to.equalShape(
-    //  `I.........
-    //   I.........
-    //   I.........
-    //   I.........
-    //   ..........
-    //   ..........`
-    // );
-    // board.rotateLeft();
-    // expect(board.toString()).to.equalShape(
-    //  `I.........
-    //   I.........
-    //   I.........
-    //   I.........
-    //   ..........
-    //   ..........`
-    // );
-  });
+ 
 
-  test("Rotate I Shape at wall", () => {
-    board.drop(Tetromino.I_SHAPE2);
-return;
+  test("Rotate Shape at right wall", () => {
+    const shape = RotatingShape.fromString(
+        `..A..
+         ..B..
+         ..C..
+         ..D..
+         ..E..`
+      );
+    
+    board.drop(shape);
+
     board.move('r');
     board.move('r');
     board.move('r');
     board.move('r');
     board.move('r');
     expect(board.toString()).to.equalShape(
-      `.........I
-       .........I
-       .........I
-       .........I
-       ..........
+      `.........A
+       .........B
+       .........C
+       .........D
+       .........E
        ..........`
     );
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
-      `.........I
-       .........I
-       .........I
-       .........I
-       ..........
+      `.........A
+       .........B
+       .........C
+       .........D
+       .........E
        ..........`
     );
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
-      `.........I
-       .........I
-       .........I
-       .........I
-       ..........
+      `.........A
+       .........B
+       .........C
+       .........D
+       .........E
        ..........`
     );
     board.rotateLeft();
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
-      `.........I
-       .........I
-       .........I
-       .........I
-       ..........
+      `.........A
+       .........B
+       .........C
+       .........D
+       .........E
        ..........`
     );
   });
