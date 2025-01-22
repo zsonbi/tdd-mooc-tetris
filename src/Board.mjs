@@ -61,10 +61,18 @@ export class Board {
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+    let success=false;
     if(this.validate(this.currentBlockHeight,this.currentColOffset, this.currentBlock.rotateLeft())){
-      this.currentBlock=this.currentBlock.rotateLeft();    
+      this.currentBlock=this.currentBlock.rotateLeft();
+      success=true;    
     }
-    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+    
+    if(!success && this.validate(this.currentBlockHeight,this.currentColOffset-1, this.currentBlock.rotateLeft())){
+      this.currentBlock=this.currentBlock.rotateLeft();
+      this.currentColOffset--;
+      success=true;    
+    }
+   this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
   rotateRight(){
     if(this.currentBlock === null){

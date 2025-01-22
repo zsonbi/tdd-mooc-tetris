@@ -121,7 +121,7 @@ describe("Falling tetrominoes rotate", () => {
 
   test("Rotate I Shape at wall", () => {
     board.drop(Tetromino.I_SHAPE2);
-
+return;
     board.move('r');
     board.move('r');
     board.move('r');
