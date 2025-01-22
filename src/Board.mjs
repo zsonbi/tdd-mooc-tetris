@@ -66,13 +66,11 @@ export class Board {
       this.currentBlock=this.currentBlock.rotateLeft();
       success=true;    
     }
-    
     if(!success && this.validate(this.currentBlockHeight,this.currentColOffset-1, this.currentBlock.rotateLeft())){
       this.currentBlock=this.currentBlock.rotateLeft();
       this.currentColOffset--;
       success=true;    
     }
-
     if(!success && this.validate(this.currentBlockHeight,this.currentColOffset+1, this.currentBlock.rotateLeft())){
       this.currentBlock=this.currentBlock.rotateLeft();
       this.currentColOffset++;
