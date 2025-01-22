@@ -56,6 +56,16 @@ export class Board {
     }
   }
 
+  rotateLeft(){
+    if(this.currentBlock === null){
+      return;
+    }
+    this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+    if(this.validate(this.rowOffset,this.colOffset, this.currentBlock.rotateLeft())){
+      this.currentBlock=this.currentBlock.rotateLeft();    
+    }
+    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+  }
   validate(rowOffset, colOffset, block){
     if(rowOffset<0 || rowOffset>=this.height){
       return false;
