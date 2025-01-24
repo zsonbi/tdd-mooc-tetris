@@ -123,11 +123,11 @@ export class Tetromino {
       return new Tetromino(this.grid,this.type);
     }
     else if(this.type===1){
-      if(this.grid[2][0]=='I'){
-        return Tetromino.I_SHAPE2;
-      }
-      else{
-        return Tetromino.I_SHAPE;
+      switch(this.rotateState){
+        case 0:
+          return Tetromino.I_SHAPE2;
+        case 1:
+          return Tetromino.I_SHAPE;
       }
     }
     else if(this.type===0){
@@ -197,11 +197,11 @@ export class Tetromino {
     return new Tetromino(this.grid,this.type);
   }
   else if(this.type===1){
-    if(this.grid[2][0]=='I'){
-      return Tetromino.I_SHAPE2;
-    }
-    else{
-      return Tetromino.I_SHAPE;
+    switch(this.rotateState){
+      case 0:
+        return Tetromino.I_SHAPE2;
+      case 1:
+        return Tetromino.I_SHAPE;
     }
   }
   else if(this.type===0){
