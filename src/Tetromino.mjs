@@ -6,21 +6,26 @@ export class Tetromino {
   }
 
   static L_SHAPE_RIGHT = new Tetromino([
-    ['.', '.', '.'],
     ['L', 'L', 'L'],
     ['.', '.', 'L'],
+    ['.', '.', '.'],
   ],4,0);
 
   static L_SHAPE_RIGHT2 = new Tetromino([
-    ['.', '.', '.'],
+    ['.', '.', ''],
     ['L', 'L', 'L'],
     ['.', '.', 'L'],
   ],4,1);
   static L_SHAPE_RIGHT3 = new Tetromino([
+    ['L', '.', '.'],
+    ['L', 'L', 'L'],
+    ['.', '.', '.'],
+  ],4,2);   
+  static L_SHAPE_RIGHT4 = new Tetromino([
     ['.', '.', '.'],
     ['L', 'L', 'L'],
-    ['.', '.', 'L'],
-  ],4,2);
+    ['.', '', 'L'],
+  ],4,3);  
   static L_SHAPE_LEFT = new Tetromino([
     ['.', '.', '.'],
     ['L', 'L', 'L'],
