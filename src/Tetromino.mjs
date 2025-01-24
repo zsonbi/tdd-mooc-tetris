@@ -58,6 +58,9 @@ export class Tetromino {
         return Tetromino.I_SHAPE;
       }
     }
+    else if(this.type===0){
+    
+    }
     let gridSize = this.grid.length;
     let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
      for (let row = 0; row < gridSize; row++) {
@@ -79,6 +82,9 @@ export class Tetromino {
     else{
       return Tetromino.I_SHAPE;
     }
+  }
+  else if(this.type===0){
+
   }
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
