@@ -4,6 +4,16 @@ export class Tetromino {
     this.type=type
     this.rotateState=rotateState
   }
+  static L_SHAPE_LEFT = new Tetromino([
+    ['L', '.', '.'],
+    ['L', 'L', 'L'],
+    ['.', '.', '.'],
+  ],3,0);
+  static L_SHAPE_LEFT2 = new Tetromino([
+    ['.', 'L', '.'],
+    ['.', 'L', '.'],
+    ['L', 'L', '.'],
+  ],3,1);
 
   static T_SHAPE = new Tetromino([
     ['.', 'T', '.'],
