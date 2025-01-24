@@ -9,7 +9,13 @@ export class Tetromino {
     ['.', 'S', 'S'],
     ['S', 'S', '.'],
     ['.', '.', '.'],
-  ],4,0);
+  ],5,0);
+
+  static S_SHAPE_LEFT2 = new Tetromino([
+    ['S', '.', '.'],
+    ['S', 'S', '.'],
+    ['.', 'S', '.'],
+  ],5,1);
 
   static L_SHAPE_RIGHT = new Tetromino([
     ['L', 'L', 'L'],
