@@ -18,10 +18,12 @@ export class Board {
       this.grid=grid;
     }
   }
+  
   static fromString(boardString) {
     const rows = boardString.trim().split("\n");
     return new Board(rows[0]?.length || 0,rows.length,boardString.trim().split('\n').map(row => row.trim().split('')));
   }
+
   drop(block) {
     if(this.hasFalling()){
       throw("already falling");
