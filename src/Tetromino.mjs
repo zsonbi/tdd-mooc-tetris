@@ -10,6 +10,16 @@ export class Tetromino {
     ['T', 'T', 'T'],
     ['.', '.', '.'],
   ],0,0);
+  static T_SHAPE2 = new Tetromino([
+    ['.', 'T', '.'],
+    ['T', 'T', 'T'],
+    ['.', '.', '.'],
+  ],0,0);
+  static T_SHAPE3 = new Tetromino([
+    ['.', 'T', '.'],
+    ['T', 'T', 'T'],
+    ['.', '.', '.'],
+  ],0,0);
 
   static I_SHAPE = new Tetromino([
     ['.','.','.','.','.'],
