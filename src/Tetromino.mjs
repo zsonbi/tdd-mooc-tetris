@@ -137,7 +137,16 @@ export class Tetromino {
     }
   }
   else if(this.type===3){
-      
+    switch(this.rotateState){
+      case 0:
+        return Tetromino.L_SHAPE_LEFT4;
+      case 1:
+        return Tetromino.L_SHAPE_LEFT;
+      case 2:
+        return Tetromino.L_SHAPE_LEFT2;
+      case 3:
+        return Tetromino.L_SHAPE_LEFT3;
+    }
   }
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
