@@ -203,7 +203,6 @@ describe("Falling tetrominoes rotate", () => {
 
   test("Rotate I Shape at wall left side", () => {
     board.drop(Tetromino.I_SHAPE2);
-    console.log("left move");
     board.move('l');
     board.move('l');
     board.move('l');
@@ -250,6 +249,50 @@ describe("Falling tetrominoes rotate", () => {
       ..........
       ..........`
     );
+  });
+
+
+  test("Try to Rotate I Shape while blocked by other blocks", () => {
+    board.drop(Tetromino.I_SHAPE2);
+    board.move('l');
+    fallToBottom(board);
+    expect(board.toString()).to.equalShape(
+     `..........
+      ..........
+      ...I......
+      ...I......
+      ...I......
+      ...I......`
+    );
+
+    board.drop(Tetromino.I_SHAPE2);
+    board.move('r');
+    fallToBottom(board);
+
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ...I.I....
+       ...I.I....
+       ...I.I....
+       ...I.I....`
+     );
+
+     board.drop(Tetromino.I_SHAPE2);
+     board.tick(board);
+     board.rotateLeft();
+     board.rotateRight();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ....I.....
+       ...III....
+       ...III....
+       ...III....
+       ...I.I....`
+     );
+    
   });
 
 });
