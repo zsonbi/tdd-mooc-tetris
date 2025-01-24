@@ -23,8 +23,11 @@ export class Board {
     }
     this.currentBlock=block;
     this.currentBlockHeight=0;
+    if(this.currentBlock.type===1 && this.currentBlock.rotateState==0){
+      this.currentBlockHeight--;
+    }
     this.currentColOffset=Math.floor(this.width / 2 - block.grid.length / 2)
-    this.place(0,this.currentColOffset,block);
+    this.place(this.currentBlockHeight,this.currentColOffset,block);
   }
 
   hasFalling(){
@@ -37,7 +40,7 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row = 0;
       for (let j = rowOffset; j < rowOffset+block.grid.length; j++) {
-        if(j>=this.grid.length){
+        if(j>=this.grid.length || j<0){
           continue;
         }
         if(block.grid[row][col]!=='.'){
@@ -55,7 +58,7 @@ export class Board {
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
       row=0;
       for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
-        if(j>=this.grid.length){
+        if(j>=this.grid.length || j<0){
           continue;
         }
         if(this.currentBlock.grid[row][col] !== '.'){
@@ -113,7 +116,7 @@ export class Board {
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
   validate(rowOffset, colOffset, block){
-    if(rowOffset<0 || rowOffset>=this.height){
+    if( rowOffset>=this.height){
       return false;
     }
     if( colOffset>=this.width){
@@ -124,7 +127,7 @@ export class Board {
       let row=0;
       for (let j = rowOffset; j < block.grid.length+rowOffset; j++) {
         if(block.grid[row][col] !== '.'){
-          if(j>=this.height || i>=this.width || this.grid[j][i] !=='.'){
+          if(j>=this.height || j<0 || i<0 || i>=this.width || this.grid[j][i] !=='.'){
             return false;
           }
         }
