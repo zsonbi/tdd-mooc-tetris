@@ -80,6 +80,7 @@ export class Board {
       this.currentBlock=this.currentBlock.rotateLeft();
       success=true;    
     }
+    success = success || this.currentBlock.type===1;
     if(!success && this.validate(this.currentBlockHeight,this.currentColOffset-1, this.currentBlock.rotateLeft())){
       this.currentBlock=this.currentBlock.rotateLeft();
       this.currentColOffset--;
@@ -103,6 +104,7 @@ export class Board {
       this.currentBlock=this.currentBlock.rotateRight();
       success=true;    
     }
+    success = success || this.currentBlock.type===1;
     if(!success && this.validate(this.currentBlockHeight,this.currentColOffset-1, this.currentBlock.rotateRight())){
       this.currentBlock=this.currentBlock.rotateRight();
       this.currentColOffset--;
