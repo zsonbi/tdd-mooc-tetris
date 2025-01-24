@@ -135,6 +135,53 @@ describe("The Left S shape", () => {
   });
 });
 
+describe("The Right S shape", () => {
+  const shape = Tetromino.S_SHAPE_RIGHT;
+  test("initial orientation", () => {
+    expect(shape.toString()).to.equalShape(
+      `SS.
+       .SS
+       ...`
+    );
+  });
+
+  test("can be rotated right/clockwise", () => {
+    expect(shape.rotateRight().toString()).to.equalShape(
+      `.S.
+       SS.
+       S..`
+    );
+  });
+
+  test("can be rotated right/clockwise twice", () => {
+    expect(shape.rotateRight().rotateRight().toString()).to.equalShape(
+      `SS.
+       .SS
+       ...`
+    );
+  });
+
+  test("can be rotated left/counter-clockwise", () => {
+    expect(shape.rotateLeft().toString()).to.equalShape(
+      `.S.
+       SS.
+       S..`
+    );
+  });
+
+  test("can be rotated left/counter-clockwise twice", () => {
+    expect(shape.rotateLeft().rotateLeft().toString()).to.equalShape(
+      `SS.
+       .SS
+       ...`
+    );
+  });
+
+  test("has 2 distinct orientations", () => {
+    expect(distinctOrientations(shape).size).to.equal(2);
+  });
+});
+
 describe("The Left L shape", () => {
   const shape = Tetromino.L_SHAPE_LEFT;
   test("initial orientation", () => {
