@@ -1,4 +1,5 @@
 import { Tetromino } from "../src/Tetromino.mjs";
+import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Board {
   width;
@@ -14,6 +15,9 @@ export class Board {
   }
 
   drop(block) {
+    if (typeof block === 'string'){
+     block=RotatingShape.fromString(block);
+    }
     this.currentBlock=block;
     this.currentBlockHeight=0;
     this.currentColOffset=Math.floor(this.width / 2 - block.grid.length / 2)
