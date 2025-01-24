@@ -222,6 +222,14 @@ export class Tetromino {
         return Tetromino.L_SHAPE_RIGHT3;
     }
   }
+  else if(this.type===5){
+    switch(this.rotateState){
+      case 0:
+        return Tetromino.S_SHAPE_LEFT2;
+      case 1:
+        return Tetromino.S_SHAPE_LEFT;
+    }
+  }
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
    for (let row = 0; row < gridSize; row++) {
