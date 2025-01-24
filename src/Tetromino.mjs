@@ -12,14 +12,19 @@ export class Tetromino {
   ],0,0);
   static T_SHAPE2 = new Tetromino([
     ['.', 'T', '.'],
-    ['T', 'T', 'T'],
-    ['.', '.', '.'],
-  ],0,0);
+    ['T', 'T', '.'],
+    ['.', 'T', '.'],
+  ],0,1);
   static T_SHAPE3 = new Tetromino([
     ['.', 'T', '.'],
     ['T', 'T', 'T'],
     ['.', '.', '.'],
-  ],0,0);
+  ],0,2);
+  static T_SHAPE4 = new Tetromino([
+    ['.', 'T', '.'],
+    ['.', 'T', 'T'],
+    ['.', 'T', '.'],
+  ],0,3);
 
   static I_SHAPE = new Tetromino([
     ['.','.','.','.','.'],
