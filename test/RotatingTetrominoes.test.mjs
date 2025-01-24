@@ -107,11 +107,27 @@ describe("The Left L shape", () => {
     );
   });
 
+  test("can be rotated right/clockwise twice", () => {
+    expect(shape.rotateRight().rotateRight().toString()).to.equalShape(
+      `..L
+       LLL
+       ...`
+    );
+  });
+
   test("can be rotated left/counter-clockwise", () => {
     expect(shape.rotateLeft().toString()).to.equalShape(
       `.L.
        .L.
        .LL`
+    );
+  });
+
+  test("can be rotated left/counter-clockwise twice", () => {
+    expect(shape.rotateLeft().rotateLeft().toString()).to.equalShape(
+      `..L
+       LLL
+       ...`
     );
   });
 
@@ -138,11 +154,27 @@ describe("The right L shape", () => {
     );
   });
 
+  test("can be rotated right/clockwise twice", () => {
+    expect(shape.rotateRight().rotateRight().toString()).to.equalShape(
+      `L..
+       LLL
+       ...`
+    );
+  });
+
   test("can be rotated left/counter-clockwise", () => {
     expect(shape.rotateLeft().toString()).to.equalShape(
       `.LL
        .L.
        .L.`
+    );
+  });
+
+  test("can be rotated left/counter-clockwise twice", () => {
+    expect(shape.rotateLeft().rotateLeft().toString()).to.equalShape(
+      `L..
+       LLL
+       ...`
     );
   });
 
