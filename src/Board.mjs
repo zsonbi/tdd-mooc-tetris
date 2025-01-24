@@ -68,7 +68,7 @@ export class Board {
   }
 
   rotateLeft(){
-    if(this.currentBlock === null){
+    if(!this.hasFalling()){
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
