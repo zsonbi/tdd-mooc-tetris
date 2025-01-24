@@ -24,6 +24,7 @@ export class Tetromino {
     ['L', 'L', 'L'],
     ['L', '.', '.'],
   ],3,3);
+
   static T_SHAPE = new Tetromino([
     ['.', 'T', '.'],
     ['T', 'T', 'T'],
@@ -89,6 +90,9 @@ export class Tetromino {
           return Tetromino.T_SHAPE;
       }
     }
+    else if(this.type===3){
+
+    }
     let gridSize = this.grid.length;
     let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
      for (let row = 0; row < gridSize; row++) {
@@ -122,6 +126,9 @@ export class Tetromino {
       case 3:
         return Tetromino.T_SHAPE3;
     }
+  }
+  else if(this.type===3){
+      
   }
   let gridSize = this.grid.length;
   let rotatedGrid = Array.from({ length: gridSize }, () => Array(gridSize).fill(null));;
