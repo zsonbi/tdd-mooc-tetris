@@ -93,9 +93,9 @@ describe("The Left L shape", () => {
   const shape = Tetromino.L_SHAPE_LEFT;
   test("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
-      `...
-       LLL
-       L..`
+      `LLL
+       L..
+       ...`
     );
   });
 

@@ -27,9 +27,9 @@ export class Tetromino {
     ['.', 'L', '.'],
   ],4,3);  
   static L_SHAPE_LEFT = new Tetromino([
-    ['.', '.', '.'],
     ['L', 'L', 'L'],
     ['L', '.', '.'],
+    ['.', '.', '.'],
   ],3,0);
 
   static L_SHAPE_LEFT2 = new Tetromino([
