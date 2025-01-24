@@ -14,7 +14,16 @@ export class Tetromino {
     ['.', 'L', '.'],
     ['L', 'L', '.'],
   ],3,1);
-
+  static L_SHAPE_LEFT3 = new Tetromino([
+    ['.', '.', 'L'],
+    ['L', 'L', 'L'],
+    ['.', '.', '.'],
+  ],3,2);
+  static L_SHAPE_LEFT4 = new Tetromino([
+    ['.', '.', '.'],
+    ['L', 'L', 'L'],
+    ['L', '.', '.'],
+  ],3,3);
   static T_SHAPE = new Tetromino([
     ['.', 'T', '.'],
     ['T', 'T', 'T'],
