@@ -15,6 +15,9 @@ export class Board {
   }
 
   drop(block) {
+    if(this.hasFalling()){
+      throw("already falling");
+    }
     if (typeof block === 'string'){
      block=RotatingShape.fromString(block);
     }
@@ -22,6 +25,10 @@ export class Board {
     this.currentBlockHeight=0;
     this.currentColOffset=Math.floor(this.width / 2 - block.grid.length / 2)
     this.place(0,this.currentColOffset,block);
+  }
+
+  hasFalling(){
+    return this.currentBlock!==undefined && this.currentBlock!==null;
   }
 
   place(rowOffset, colOffset, block){
@@ -84,7 +91,7 @@ export class Board {
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
   rotateRight(){
-    if(this.currentBlock === null){
+    if(!this.hasFalling()){
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
@@ -129,7 +136,7 @@ export class Board {
   }
 
   move(dir){
-    if(this.currentBlock===null){
+    if(!this.hasFalling()){
       return;
     }
     this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
@@ -162,7 +169,7 @@ export class Board {
   }
 
   tick(){
-    if(this.currentBlock===null){
+    if(!this.hasFalling()){
       return;
     }
     let col = 0;

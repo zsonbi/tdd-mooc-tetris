@@ -265,7 +265,6 @@ describe("Falling tetrominoes rotate", () => {
       ...I......
       ...I......`
     );
-
     board.drop(Tetromino.I_SHAPE2);
     board.move('r');
     fallToBottom(board);
