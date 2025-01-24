@@ -8,12 +8,20 @@ export class Board {
   currentBlock;
   currentBlockHeight;
   currentColOffset;
-  constructor(width, height) {
+  constructor(width, height,grid) {
     this.width = width;
     this.height = height;
+    if(grid===undefined || grid===null){
     this.grid = Array.from({ length: this.height }, () => Array(this.width).fill('.'));
+    }
+    else{
+      this.grid=grid;
+    }
   }
-
+  static fromString(boardString) {
+    const rows = boardString.trim().split("\n");
+    return new Board(rows[0]?.length || 0,rows.length,boardString.trim().split('\n').map(row => row.trim().split('')));
+  }
   drop(block) {
     if(this.hasFalling()){
       throw("already falling");

@@ -28,7 +28,6 @@ describe("Falling tetrominoes rotate", () => {
        ..........
        ..........`
     );
-    console.log(board.toString());
     board.rotateLeft();
     expect(board.toString()).to.equalShape(
       `..........
