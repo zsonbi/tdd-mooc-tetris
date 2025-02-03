@@ -18,6 +18,11 @@ export class ShuffleBag{
         return this.bag[this.bagIndex];
     }
     shuffle(){
-
+        let tempBag = [...this.shapes];
+        while (condition) {
+            let index = Math.floor(Math.random()*(tempBag.length))
+            this.bag.concat(tempBag[index])
+            this.tempBag.splice(index,index);
+        }
     }
 }
