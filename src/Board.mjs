@@ -17,11 +17,22 @@ export class Board {
     else{
       this.grid=grid;
     }
+    this.score=0;
   }
   
   static fromString(boardString) {
     const rows = boardString.trim().split("\n");
     return new Board(rows[0]?.length || 0,rows.length,boardString.trim().split('\n').map(row => row.trim().split('')));
+  }
+
+  clearLines(){
+    for (let i = this.height-1; i >= 0; i++) {
+      
+    }
+  }
+
+  checkLineFull(){
+
   }
 
   drop(block) {
