@@ -1,4 +1,4 @@
-class ScoringSystem {
+export class ScoringSystem {
     constructor() {
         this.score = 0;
         this.scores=[0, 40, 100, 300, 1200];

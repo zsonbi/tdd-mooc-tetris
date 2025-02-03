@@ -17,12 +17,20 @@ export class Board {
     else{
       this.grid=grid;
     }
-    this.score=0;
+    this.observers = [];
   }
   
   static fromString(boardString) {
     const rows = boardString.trim().split("\n");
     return new Board(rows[0]?.length || 0,rows.length,boardString.trim().split('\n').map(row => row.trim().split('')));
+  }
+
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
+
+  removeObserver(observer) {
+    this.observers = this.observers.filter(obs => obs !== observer);
   }
 
   clearLines(){
@@ -35,12 +43,18 @@ export class Board {
         fullLineCount++;
       }
       else{
-        if(fullLineCount>0)
+        if(fullLineCount>0){
         this.shrinkBoard((i+1),i+fullLineCount);
+        this.observers.forEach(observer => observer.onCleared(fullLineCount));
+        }
         i+=fullLineCount;
         fullLineCount=0;
       }
     }
+    if(fullLineCount>0){
+      this.shrinkBoard((i+1),i+fullLineCount);
+      this.observers.forEach(observer => observer.onCleared(fullLineCount));
+      }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
 
