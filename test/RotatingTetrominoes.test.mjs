@@ -89,7 +89,7 @@ describe("The I shape", () => {
 });
 
 describe("The Left S shape", () => {
-  const shape = Tetromino.S_SHAPE_LEFT;
+  const shape = Tetromino.S_SHAPE;
   test("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
       `.SS
