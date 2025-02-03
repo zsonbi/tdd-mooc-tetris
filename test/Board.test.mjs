@@ -31,92 +31,76 @@ describe("Import custom board sate", () => {
 
 });
 
-describe("shrink test", () => {
+
+describe("shrink test on top", () => {
   
-
-  test("start from the top middle", () => {
-   let board=Board.fromString(
-      `....T.....
-       ...TTT....
-       ..........
-       OOOOOOOOOO
-       TTTTTTTTTT
-       IIIIIIIIII`
-      );
-
-      board.shrinkBoard(4,4);
-
-    expect(board.toString()).to.equalShape(
-       `..........
-        ....T.....
+  test("shrink test", () => {
+    let board=Board.fromString(
+       `....T.....
         ...TTT....
         ..........
         OOOOOOOOOO
+        TTTTTTTTTT
         IIIIIIIIII`
-    );
-  });
+       );
+ 
+       board.shrinkBoard(4,4);
+ 
+     expect(board.toString()).to.equalShape(
+        `..........
+         ....T.....
+         ...TTT....
+         ..........
+         OOOOOOOOOO
+         IIIIIIIIII`
+     );
+   });
 
-  
-
-});
-
-
-describe("shrink test multiple lines", () => {
-  
-
-  test("start from the top middle", () => {
-   let board=Board.fromString(
-      `....T.....
-       ...TTT....
-       ..........
-       OOOOOOOOOO
-       TTTTTTTTTT
-       IIIIIIIIII`
-      );
-
-      board.shrinkBoard(3,4);
-
-    expect(board.toString()).to.equalShape(
-       `..........
-        ..........
-        ....T.....
+  test("shrink test multiple lines", () => {
+    let board=Board.fromString(
+       `....T.....
         ...TTT....
         ..........
+        OOOOOOOOOO
+        TTTTTTTTTT
         IIIIIIIIII`
-    );
-  });
-});
+       );
+ 
+       board.shrinkBoard(3,4);
+ 
+     expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ....T.....
+         ...TTT....
+         ..........
+         IIIIIIIIII`
+     );
+   });
 
-describe("shrink test multiple lines2", () => {
-  
-
-  test("start from the top middle", () => {
-   let board=Board.fromString(
-      `....T.....
-       ...TTT....
-       ..........
-       OOOOOOOOOO
-       TTTTTTTTTT
-       IIIIIIIIII`
-      );
-
-      board.shrinkBoard(3,5);
-
-    expect(board.toString()).to.equalShape(
-       `..........
-        ..........
-        ..........
-        ....T.....
+  test("shrink test multiple lines2", () => {
+    let board=Board.fromString(
+       `....T.....
         ...TTT....
-        ..........`
-    );
-  });
-});
+        ..........
+        OOOOOOOOOO
+        TTTTTTTTTT
+        IIIIIIIIII`
+       );
+ 
+       board.shrinkBoard(3,5);
+ 
+     expect(board.toString()).to.equalShape(
+        `..........
+         ..........
+         ..........
+         ....T.....
+         ...TTT....
+         ..........`
+     );
+   });
 
-describe("shrink test on top", () => {
-  
-
-  test("start from the top middle", () => {
+  test("shrink test on top", () => {
    let board=Board.fromString(
       `....T.....
        ...TTT....
@@ -137,60 +121,54 @@ describe("shrink test on top", () => {
        IIIIIIIIII`
     );
   });
-});
 
-describe("shrink test on top", () => {
-  
-
-  test("start from the top middle", () => {
-   let board=Board.fromString(
-      `..........
-       ..........
-       ..........
-       OOOOOOOOOO
-       TTTTTTTTTT
-       IIIIIIIIII`
-      );
-
-      board.drop(Tetromino.T_SHAPE);
-
-      expect(board.toString()).to.equalShape(
-           `....T.....
-            ...TTT....
-            ..........
-            OOOOOOOOOO
-            TTTTTTTTTT
-            IIIIIIIIII`
-      );
-
-      board.shrinkBoard(0,1);
-
-    expect(board.toString()).to.equalShape(
-      `....T.....
-       ...TTT....
-       ..........
-       OOOOOOOOOO
-       TTTTTTTTTT
-       IIIIIIIIII`
-    );
-
-    board.shrinkBoard(4,5);
-
-    expect(board.toString()).to.equalShape(
-      `....T.....
-       ...TTT....
-       ..........
-       ..........
-       ..........
-       OOOOOOOOOO`
-    );
-  });
+  test("shrink test on top2", () => {
+    let board=Board.fromString(
+       `..........
+        ..........
+        ..........
+        OOOOOOOOOO
+        TTTTTTTTTT
+        IIIIIIIIII`
+       );
+ 
+       board.drop(Tetromino.T_SHAPE);
+ 
+       expect(board.toString()).to.equalShape(
+            `....T.....
+             ...TTT....
+             ..........
+             OOOOOOOOOO
+             TTTTTTTTTT
+             IIIIIIIIII`
+       );
+ 
+       board.shrinkBoard(0,1);
+ 
+     expect(board.toString()).to.equalShape(
+       `....T.....
+        ...TTT....
+        ..........
+        OOOOOOOOOO
+        TTTTTTTTTT
+        IIIIIIIIII`
+     );
+ 
+     board.shrinkBoard(4,5);
+ 
+     expect(board.toString()).to.equalShape(
+       `....T.....
+        ...TTT....
+        ..........
+        ..........
+        ..........
+        OOOOOOOOOO`
+     );
+   });
 });
 
 
 describe("clear lines test", () => {
-  
-
   test("start from the top middle", () => {
    let board=Board.fromString(
         `....T.....
