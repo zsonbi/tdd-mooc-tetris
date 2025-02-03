@@ -49,6 +49,13 @@ export class Board {
   }
 
   shrinkBoard(startHeight, endHeight){
+    let difference = endHeight-startHeight;
+    for (let i = startHeight; i < endHeight; i++) {
+      for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+      }
+
+    }
 
   }
 
