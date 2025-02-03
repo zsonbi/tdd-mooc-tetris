@@ -28,7 +28,9 @@ export class Board {
   clearLines(){
     let fullLineCount=0;
     for (let i = this.height-1; i >= 0; i++) {
-      this.checkLineFull(i);
+      if(this.checkLineFull(i)){
+        
+      }
     }
   }
 
