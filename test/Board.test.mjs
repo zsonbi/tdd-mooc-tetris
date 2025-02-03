@@ -226,4 +226,26 @@ describe("clear lines test", () => {
        TTTT.TTTTT`
     );
   });
+
+  test("top clear", () => {
+      let board=Board.fromString(
+        `OOOOOOOOOO
+         TTTTTTTTTT
+         ..........
+         ..........
+         ..........
+         ..........`
+        );
+
+        board.clearLines();
+
+        expect(board.toString()).to.equalShape(
+          `..........
+           ..........
+           ..........
+           ..........
+           ..........
+           ..........`
+        );
+    });
 });

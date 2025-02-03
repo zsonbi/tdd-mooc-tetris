@@ -52,8 +52,8 @@ export class Board {
       }
     }
     if(fullLineCount>0){
-      this.shrinkBoard((i+1),i+fullLineCount);
-      this.observers.forEach(observer => observer.onCleared(fullLineCount));
+      this.shrinkBoard(0,0+fullLineCount);
+        this.observers.forEach(observer => observer.onCleared(fullLineCount));
       }
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }

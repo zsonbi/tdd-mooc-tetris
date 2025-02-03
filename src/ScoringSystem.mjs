@@ -6,7 +6,7 @@ export class ScoringSystem {
 
         onCleared(numRows) {
             this.score += this.scores[numRows];
-            console.log("New score "+this.score);
+            // console.log("New score "+this.score);
         }
 
     getScore() {
