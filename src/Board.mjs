@@ -49,17 +49,16 @@ export class Board {
   }
 
   shrinkBoard(startHeight, endHeight){
-    let difference = endHeight-startHeight;
-    for (let i = startHeight; i < this.height; i++) {
+    let difference = (endHeight+1)-startHeight;
+    for (let i = endHeight; i >= 0; i--) {
       for (let col = 0; col < this.width; col++) {
-        if(i+difference<this.height){
-        this.grid[i][col]=this.grid[i+difference][col];
+        if(i-difference>=0){
+        this.grid[i][col]=this.grid[i-difference][col];
         }
         else{
           this.grid[i][col]='.';
         }
       }
-
     }
 
   }

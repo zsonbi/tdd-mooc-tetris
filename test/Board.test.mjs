@@ -31,3 +31,32 @@ describe("Import custom board sate", () => {
 
 });
 
+describe("shrink test", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+      );
+
+      board.shrinkBoard(4,4);
+
+      console.log(board.toString());
+    expect(board.toString()).to.equalShape(
+       `..........
+        ....T.....
+        ...TTT....
+        ..........
+        OOOOOOOOOO
+        IIIIIIIIII`
+    );
+  });
+
+
+});
+
