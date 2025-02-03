@@ -42,11 +42,11 @@ function initGame() {
     } else if (event.code === "ArrowUp") {
       game.board.rotateRight();
     } else if (event.code === "ArrowDown") {
-      game.board.move('d');
+      game.board.move("d");
     } else if (event.code === "ArrowLeft") {
-      game.board.move('l');
+      game.board.move("l");
     } else if (event.code === "ArrowRight") {
-      game.board.move('r');
+      game.board.move("r");
     } else {
       return;
     }

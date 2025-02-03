@@ -1,4 +1,3 @@
-
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
@@ -39,8 +38,6 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
-
-
   test("Rotate Right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
@@ -74,12 +71,12 @@ describe("Falling tetrominoes rotate", () => {
        ..........
        ..........`
     );
-    board.move('r');
-    board.move('r');
-    board.move('r');
-    board.move('r');
-    board.move('r');
-    board.move('r');
+    board.move("r");
+    board.move("r");
+    board.move("r");
+    board.move("r");
+    board.move("r");
+    board.move("r");
     board.rotateRight();
     expect(board.toString()).to.equalShape(
       `..........
@@ -90,7 +87,6 @@ describe("Falling tetrominoes rotate", () => {
        ..........`
     );
   });
-
 
   test("Wall kick left", () => {
     board.drop(Tetromino.T_SHAPE);
@@ -103,12 +99,12 @@ describe("Falling tetrominoes rotate", () => {
        ..........
        ..........`
     );
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
     board.rotateLeft();
     expect(board.toString()).to.equalShape(
       `.T........
@@ -143,24 +139,22 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
- 
-
   test("Rotate Shape at right wall", () => {
     const shape = RotatingShape.fromString(
-        `..A..
+      `..A..
          ..B..
          ..C..
          ..D..
          ..E..`
-      );
-    
+    );
+
     board.drop(shape);
 
-    board.move('r');
-    board.move('r');
-    board.move('r');
-    board.move('r');
-    board.move('r');
+    board.move("r");
+    board.move("r");
+    board.move("r");
+    board.move("r");
+    board.move("r");
     expect(board.toString()).to.equalShape(
       `.........A
        .........B
@@ -204,15 +198,15 @@ describe("Falling tetrominoes rotate", () => {
 
   test("Rotate I Shape at wall left side", () => {
     board.drop(Tetromino.I_SHAPE2);
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
-    board.move('l');
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
+    board.move("l");
     expect(board.toString()).to.equalShape(
-     `I.........
+      `I.........
       I.........
       I.........
       I.........
@@ -222,7 +216,7 @@ describe("Falling tetrominoes rotate", () => {
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
-     `I.........
+      `I.........
       I.........
       I.........
       I.........
@@ -232,7 +226,7 @@ describe("Falling tetrominoes rotate", () => {
     board.rotateRight();
 
     expect(board.toString()).to.equalShape(
-     `I.........
+      `I.........
       I.........
       I.........
       I.........
@@ -243,7 +237,7 @@ describe("Falling tetrominoes rotate", () => {
     board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
-     `I.........
+      `I.........
       I.........
       I.........
       I.........
@@ -252,13 +246,12 @@ describe("Falling tetrominoes rotate", () => {
     );
   });
 
-
   test("Try to Rotate I Shape while blocked by other blocks", () => {
     board.drop(Tetromino.I_SHAPE2);
-    board.move('l');
+    board.move("l");
     fallToBottom(board);
     expect(board.toString()).to.equalShape(
-     `..........
+      `..........
       ..........
       ...I......
       ...I......
@@ -266,9 +259,8 @@ describe("Falling tetrominoes rotate", () => {
       ...I......`
     );
     board.drop(Tetromino.I_SHAPE2);
-    board.move('r');
+    board.move("r");
     fallToBottom(board);
-
 
     expect(board.toString()).to.equalShape(
       `..........
@@ -277,12 +269,12 @@ describe("Falling tetrominoes rotate", () => {
        ...I.I....
        ...I.I....
        ...I.I....`
-     );
+    );
 
-     board.drop(Tetromino.I_SHAPE2);
-     board.tick(board);
-     board.rotateLeft();
-     board.rotateRight();
+    board.drop(Tetromino.I_SHAPE2);
+    board.tick(board);
+    board.rotateLeft();
+    board.rotateRight();
 
     expect(board.toString()).to.equalShape(
       `..........
@@ -291,9 +283,6 @@ describe("Falling tetrominoes rotate", () => {
        ...III....
        ...III....
        ...I.I....`
-     );
-    
+    );
   });
-
 });
-

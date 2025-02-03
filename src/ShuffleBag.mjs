@@ -1,27 +1,26 @@
-export class ShuffleBag{
+export class ShuffleBag {
+  constructor(shapes) {
+    this.shapes = shapes;
+    this.bag = [];
+    this.shuffle();
+  }
 
-    constructor(shapes){
-        this.shapes = shapes;
-        this.bag=[];
-        this.shuffle();
+  pop() {
+    if (this.shapes.length == 0) {
+      return null;
+    }
+    if (this.bag.length == 0) {
+      this.shuffle();
     }
 
-    pop(){
-        if(this.shapes.length == 0){
-            return null;
-        }
-        if(this.bag.length==0){
-            this.shuffle();
-        }
-
-        return this.bag.shift();
+    return this.bag.shift();
+  }
+  shuffle() {
+    var tempBag = [...this.shapes];
+    for (let i = 0; i < this.shapes.length; i++) {
+      let index = Math.floor(Math.random() * tempBag.length);
+      this.bag.push(tempBag[index]);
+      tempBag.splice(index, 1);
     }
-    shuffle(){
-        var tempBag = [...this.shapes];
-        for (let i = 0; i < this.shapes.length; i++) {
-            let index = Math.floor(Math.random()*(tempBag.length))
-            this.bag.push(tempBag[index])
-            tempBag.splice(index,1);
-        }
-    }
+  }
 }

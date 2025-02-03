@@ -1,4 +1,3 @@
-
 import { beforeEach, describe, test } from "vitest";
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
@@ -18,7 +17,7 @@ describe("Falling tetrominoes move", () => {
 
   test("Move left", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.move('l');
+    board.move("l");
     expect(board.toString()).to.equalShape(
       `...T......
        ..TTT.....
@@ -31,7 +30,7 @@ describe("Falling tetrominoes move", () => {
 
   test("Move right", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.move('r');
+    board.move("r");
     expect(board.toString()).to.equalShape(
       `.....T....
        ....TTT...
@@ -44,7 +43,7 @@ describe("Falling tetrominoes move", () => {
 
   test("Move down", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.move('d');
+    board.move("d");
     expect(board.toString()).to.equalShape(
       `..........
        ....T.....
@@ -58,7 +57,7 @@ describe("Falling tetrominoes move", () => {
   test("Move down bottom", () => {
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
-      board.move('d');
+      board.move("d");
     }
     expect(board.toString()).to.equalShape(
       `
@@ -70,15 +69,15 @@ describe("Falling tetrominoes move", () => {
        ...TTT....`
     );
   });
-  
+
   test("Move down bottom block already there", () => {
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
-      board.move('d');
+      board.move("d");
     }
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
-      board.move('d');
+      board.move("d");
     }
     expect(board.toString()).to.equalShape(
       `
@@ -94,7 +93,7 @@ describe("Falling tetrominoes move", () => {
   test("Move right till wall", () => {
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
-      board.move('r');
+      board.move("r");
     }
     expect(board.toString()).to.equalShape(
       `........T.
@@ -109,7 +108,7 @@ describe("Falling tetrominoes move", () => {
   test("Move left till wall", () => {
     board.drop(Tetromino.T_SHAPE);
     for (let i = 0; i < 10; i++) {
-      board.move('l');
+      board.move("l");
     }
     expect(board.toString()).to.equalShape(
       `.T........
@@ -120,6 +119,4 @@ describe("Falling tetrominoes move", () => {
        ..........`
     );
   });
-
 });
-

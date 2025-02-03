@@ -1,4 +1,3 @@
-
 import { describe, test } from "vitest";
 import { expect } from "chai";
 import { Tetromino } from "../src/Tetromino.mjs";
@@ -47,8 +46,6 @@ describe("The T shape", () => {
     expect(distinctOrientations(shape).size).to.equal(4);
   });
 });
-
-
 
 describe("The I shape", () => {
   const shape = Tetromino.I_SHAPE;
@@ -229,8 +226,6 @@ describe("The Left L shape", () => {
   });
 });
 
-
-
 describe("The right L shape", () => {
   const shape = Tetromino.J_SHAPE;
   test("initial orientation", () => {
@@ -309,4 +304,3 @@ describe("The O shape", () => {
     expect(distinctOrientations(shape).size).to.equal(1);
   });
 });
-
