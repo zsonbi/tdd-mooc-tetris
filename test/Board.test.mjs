@@ -186,3 +186,66 @@ describe("shrink test on top", () => {
     );
   });
 });
+
+
+describe("clear lines test", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+        `....T.....
+        ...TTT....
+        ..........
+        OOO...OOOO
+        TTTT.TTTTT
+        IIIIIIIIII`
+      );
+
+      board.drop(Tetromino.T_SHAPE);
+
+      expect(board.toString()).to.equalShape(
+           `....T.....
+            ...TTT....
+            ..........
+            OOO...OOOO
+            TTTT.TTTTT
+            IIIIIIIIII`
+      );
+
+      board.shrinkBoard(0,1);
+
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TTT....
+       ..........
+       OOO...OOOO
+       TTTT.TTTTT
+       IIIIIIIIII`
+    );
+
+    board.tick();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ....T.....
+       ...TTT....
+       ..........
+       OOO...OOOO
+       TTTT.TTTTT`
+    );
+    for (let i = 0; i < 10; i++) {
+      // console.log(board.hasFalling());
+      board.tick();
+      // console.log(board.toString());
+    }
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ....T.....
+       TTTT.TTTTT`
+    );
+  });
+});

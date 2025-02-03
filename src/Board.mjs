@@ -26,17 +26,22 @@ export class Board {
   }
 
   clearLines(){
+    this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+
     let fullLineCount=0;
-    for (let i = this.height-1; i >= 0; i++) {
+
+    for (let i = this.height-1; i >= 0; i--) {
       if(this.checkLineFull(i)){
         fullLineCount++;
       }
       else{
-        this.shrinkBoard(i-fullLineCount,i);
-        i-=fullLineCount;
+        if(fullLineCount>0)
+        this.shrinkBoard((i+1),i+fullLineCount);
+        i+=fullLineCount;
         fullLineCount=0;
       }
     }
+    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
   }
 
   checkLineFull(height){
@@ -243,10 +248,12 @@ export class Board {
       this.place(this.currentBlockHeight-1,this.currentColOffset,this.currentBlock);
       this.currentBlock=null;
       this.currentBlockHeight=0;
+      this.clearLines();
       return;
     }
 
     this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
+    this.clearLines();
   }
 
 
