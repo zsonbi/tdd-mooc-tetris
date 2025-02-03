@@ -8,7 +8,14 @@ export class ShuffleBag{
     }
 
     pop(){
-
+        this.bagIndex++;
+        if(this.bagIndex>=this.bag.length){
+            this.shuffle();
+        }
+        if(this.bagIndex>=this.bag.length){
+            return null;
+        }
+        return this.bag[this.bagIndex];
     }
     shuffle(){
 
