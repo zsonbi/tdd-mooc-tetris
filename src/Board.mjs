@@ -26,13 +26,19 @@ export class Board {
   }
 
   clearLines(){
+    let fullLineCount=0;
     for (let i = this.height-1; i >= 0; i++) {
-      
+      this.checkLineFull(i);
     }
   }
 
-  checkLineFull(){
-
+  checkLineFull(height){
+    for (let i = 0; i < this.width; i++) {
+      if(this.grid[height][i] === '.'){
+        return false;
+      }
+    }
+    return true;
   }
 
   drop(block) {
