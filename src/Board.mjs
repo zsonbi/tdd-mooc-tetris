@@ -29,7 +29,12 @@ export class Board {
     let fullLineCount=0;
     for (let i = this.height-1; i >= 0; i++) {
       if(this.checkLineFull(i)){
-        
+        fullLineCount++;
+      }
+      else{
+        this.shrinkBoard(i-fullLineCount,i);
+        i-=fullLineCount;
+        fullLineCount=0;
       }
     }
   }
@@ -41,6 +46,10 @@ export class Board {
       }
     }
     return true;
+  }
+
+  shrinkBoard(startHeight, endHeight){
+
   }
 
   drop(block) {
