@@ -28,23 +28,23 @@ export class Tetromino {
     ['S', '.', '.'],
   ],6,1);
 
-  static L_SHAPE_RIGHT = new Tetromino([
+  static J_SHAPET = new Tetromino([
     ['L', 'L', 'L'],
     ['.', '.', 'L'],
     ['.', '.', '.'],
   ],4,0);
 
-  static L_SHAPE_RIGHT2 = new Tetromino([
+  static J_SHAPET2 = new Tetromino([
     ['.', 'L', '.'],
     ['.', 'L', '.'],
     ['L', 'L', '.'],
   ],4,1);
-  static L_SHAPE_RIGHT3 = new Tetromino([
+  static J_SHAPET3 = new Tetromino([
     ['L', '.', '.'],
     ['L', 'L', 'L'],
     ['.', '.', '.'],
   ],4,2);   
-  static L_SHAPE_RIGHT4 = new Tetromino([
+  static J_SHAPET4 = new Tetromino([
     ['.', 'L', 'L'],
     ['.', 'L', '.'],
     ['.', 'L', '.'],
@@ -157,13 +157,13 @@ export class Tetromino {
     else if(this.type===4){
       switch(this.rotateState){
         case 0:
-          return Tetromino.L_SHAPE_RIGHT2;
+          return Tetromino.J_SHAPET2;
         case 1:
-          return Tetromino.L_SHAPE_RIGHT3;
+          return Tetromino.J_SHAPET3;
         case 2:
-          return Tetromino.L_SHAPE_RIGHT4;
+          return Tetromino.J_SHAPET4;
         case 3:
-          return Tetromino.L_SHAPE_RIGHT;
+          return Tetromino.J_SHAPET;
       }
     }
     else if(this.type===5){
@@ -231,13 +231,13 @@ export class Tetromino {
   else if(this.type===4){
     switch(this.rotateState){
       case 0:
-        return Tetromino.L_SHAPE_RIGHT4;
+        return Tetromino.J_SHAPET4;
       case 1:
-        return Tetromino.L_SHAPE_RIGHT;
+        return Tetromino.J_SHAPET;
       case 2:
-        return Tetromino.L_SHAPE_RIGHT2;
+        return Tetromino.J_SHAPET2;
       case 3:
-        return Tetromino.L_SHAPE_RIGHT3;
+        return Tetromino.J_SHAPET3;
     }
   }
   else if(this.type===5){
