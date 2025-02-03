@@ -49,6 +49,7 @@ export class Board {
   }
   //[upper index, lower index] for example to shrink 4. and 5. rows shrinkBoard(3,4)
   shrinkBoard(startHeight, endHeight){
+    this.clean(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
     let difference = (endHeight+1)-startHeight;
     for (let i = endHeight; i >= 0; i--) {
       for (let col = 0; col < this.width; col++) {
@@ -60,6 +61,7 @@ export class Board {
         }
       }
     }
+    this.place(this.currentBlockHeight,this.currentColOffset,this.currentBlock);
 
   }
 
@@ -84,6 +86,9 @@ export class Board {
   }
 
   place(rowOffset, colOffset, block){
+    if(!this.hasFalling()){
+      return
+    }
     let col = 0;
     let row = 0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {
@@ -102,6 +107,9 @@ export class Board {
   }
 
   clean(rowOffset, colOffset, block){
+    if(!this.hasFalling()){
+      return
+    }
     let col = 0;
     let row=0;
     for (let i = colOffset; i < colOffset + block.grid.length; i++) {

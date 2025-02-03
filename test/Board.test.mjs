@@ -138,3 +138,51 @@ describe("shrink test on top", () => {
     );
   });
 });
+
+describe("shrink test on top", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+      `..........
+       ..........
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+      );
+
+      board.drop(Tetromino.T_SHAPE);
+
+      expect(board.toString()).to.equalShape(
+           `....T.....
+            ...TTT....
+            ..........
+            OOOOOOOOOO
+            TTTTTTTTTT
+            IIIIIIIIII`
+      );
+
+      board.shrinkBoard(0,1);
+
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+    );
+
+    board.shrinkBoard(4,5);
+
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TTT....
+       ..........
+       ..........
+       ..........
+       OOOOOOOOOO`
+    );
+  });
+});
