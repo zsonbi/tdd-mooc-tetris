@@ -28,46 +28,46 @@ export class Tetromino {
     ['S', '.', '.'],
   ],6,1);
 
-  static J_SHAPET = new Tetromino([
+  static J_SHAPE = new Tetromino([
     ['L', 'L', 'L'],
     ['.', '.', 'L'],
     ['.', '.', '.'],
   ],4,0);
 
-  static J_SHAPET2 = new Tetromino([
+  static J_SHAPE2 = new Tetromino([
     ['.', 'L', '.'],
     ['.', 'L', '.'],
     ['L', 'L', '.'],
   ],4,1);
-  static J_SHAPET3 = new Tetromino([
+  static J_SHAPE3 = new Tetromino([
     ['L', '.', '.'],
     ['L', 'L', 'L'],
     ['.', '.', '.'],
   ],4,2);   
-  static J_SHAPET4 = new Tetromino([
+  static J_SHAPE4 = new Tetromino([
     ['.', 'L', 'L'],
     ['.', 'L', '.'],
     ['.', 'L', '.'],
   ],4,3);  
-  static L_SHAPE_LEFT = new Tetromino([
+  static L_SHAPE = new Tetromino([
     ['L', 'L', 'L'],
     ['L', '.', '.'],
     ['.', '.', '.'],
   ],3,0);
 
-  static L_SHAPE_LEFT2 = new Tetromino([
+  static L_SHAPE2 = new Tetromino([
     ['L', 'L', '.'],
     ['.', 'L', '.'],
     ['.', 'L', '.'],
   ],3,1);
 
-  static L_SHAPE_LEFT3 = new Tetromino([
+  static L_SHAPE3 = new Tetromino([
     ['.', '.', 'L'],
     ['L', 'L', 'L'],
     ['.', '.', '.'],
   ],3,2);
 
-  static L_SHAPE_LEFT4 = new Tetromino([
+  static L_SHAPE4 = new Tetromino([
     ['.', 'L', '.'],
     ['.', 'L', '.'],
     ['.', 'L', 'L'],
@@ -145,25 +145,25 @@ export class Tetromino {
     else if(this.type===3){
       switch(this.rotateState){
         case 0:
-          return Tetromino.L_SHAPE_LEFT2;
+          return Tetromino.L_SHAPE2;
         case 1:
-          return Tetromino.L_SHAPE_LEFT3;
+          return Tetromino.L_SHAPE3;
         case 2:
-          return Tetromino.L_SHAPE_LEFT4;
+          return Tetromino.L_SHAPE4;
         case 3:
-          return Tetromino.L_SHAPE_LEFT;
+          return Tetromino.L_SHAPE;
       }
     }
     else if(this.type===4){
       switch(this.rotateState){
         case 0:
-          return Tetromino.J_SHAPET2;
+          return Tetromino.J_SHAPE2;
         case 1:
-          return Tetromino.J_SHAPET3;
+          return Tetromino.J_SHAPE3;
         case 2:
-          return Tetromino.J_SHAPET4;
+          return Tetromino.J_SHAPE4;
         case 3:
-          return Tetromino.J_SHAPET;
+          return Tetromino.J_SHAPE;
       }
     }
     else if(this.type===5){
@@ -219,25 +219,25 @@ export class Tetromino {
   else if(this.type===3){
     switch(this.rotateState){
       case 0:
-        return Tetromino.L_SHAPE_LEFT4;
+        return Tetromino.L_SHAPE4;
       case 1:
-        return Tetromino.L_SHAPE_LEFT;
+        return Tetromino.L_SHAPE;
       case 2:
-        return Tetromino.L_SHAPE_LEFT2;
+        return Tetromino.L_SHAPE2;
       case 3:
-        return Tetromino.L_SHAPE_LEFT3;
+        return Tetromino.L_SHAPE3;
     }
   }
   else if(this.type===4){
     switch(this.rotateState){
       case 0:
-        return Tetromino.J_SHAPET4;
+        return Tetromino.J_SHAPE4;
       case 1:
-        return Tetromino.J_SHAPET;
+        return Tetromino.J_SHAPE;
       case 2:
-        return Tetromino.J_SHAPET2;
+        return Tetromino.J_SHAPE2;
       case 3:
-        return Tetromino.J_SHAPET3;
+        return Tetromino.J_SHAPE3;
     }
   }
   else if(this.type===5){

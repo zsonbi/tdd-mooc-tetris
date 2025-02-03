@@ -183,7 +183,7 @@ describe("The Right S shape", () => {
 });
 
 describe("The Left L shape", () => {
-  const shape = Tetromino.L_SHAPE_LEFT;
+  const shape = Tetromino.L_SHAPE;
   test("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
       `LLL
@@ -232,7 +232,7 @@ describe("The Left L shape", () => {
 
 
 describe("The right L shape", () => {
-  const shape = Tetromino.J_SHAPET;
+  const shape = Tetromino.J_SHAPE;
   test("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
       `LLL
