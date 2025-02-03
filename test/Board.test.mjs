@@ -46,7 +46,6 @@ describe("shrink test", () => {
 
       board.shrinkBoard(4,4);
 
-      console.log(board.toString());
     expect(board.toString()).to.equalShape(
        `..........
         ....T.....
@@ -57,6 +56,85 @@ describe("shrink test", () => {
     );
   });
 
+  
 
 });
 
+
+describe("shrink test multiple lines", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+      );
+
+      board.shrinkBoard(3,4);
+
+    expect(board.toString()).to.equalShape(
+       `..........
+        ..........
+        ....T.....
+        ...TTT....
+        ..........
+        IIIIIIIIII`
+    );
+  });
+});
+
+describe("shrink test multiple lines2", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+      );
+
+      board.shrinkBoard(3,5);
+
+    expect(board.toString()).to.equalShape(
+       `..........
+        ..........
+        ..........
+        ....T.....
+        ...TTT....
+        ..........`
+    );
+  });
+});
+
+describe("shrink test on top", () => {
+  
+
+  test("start from the top middle", () => {
+   let board=Board.fromString(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+      );
+
+      board.shrinkBoard(0,1);
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+    );
+  });
+});

@@ -47,7 +47,7 @@ export class Board {
     }
     return true;
   }
-
+  //[upper index, lower index] for example to shrink 4. and 5. rows shrinkBoard(3,4)
   shrinkBoard(startHeight, endHeight){
     let difference = (endHeight+1)-startHeight;
     for (let i = endHeight; i >= 0; i--) {
