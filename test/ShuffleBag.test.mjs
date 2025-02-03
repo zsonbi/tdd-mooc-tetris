@@ -23,7 +23,6 @@ describe("Test shuffle bag", () => {
 
     expect(shuffleBag.shapes.length).to.equal(8)
     expect(shuffleBag.bag.length).to.equal(8)
-    expect(shuffleBag.bagIndex).to.equal(0)
   });
 
   test("shuffle bag test2 (pop)", () => {
@@ -40,15 +39,11 @@ describe("Test shuffle bag", () => {
 
     expect(shuffleBag.shapes.length).to.equal(8)
     expect(shuffleBag.bag.length).to.equal(8)
-    expect(shuffleBag.bagIndex).to.equal(0)
 
-    expect(shuffleBag.pop().toString()).to.equal(shuffleBag.bag[0].toString());
-    for (let index = 1; index < 7; index++) {
-      expect(shuffleBag.pop().toString()).to.equal(shuffleBag.bag[index].toString());
-      expect(shuffleBag.bagIndex).to.equal((index+1)%8);
+    for (let index = 0; index < 8; index++) {
+      let expected =shuffleBag.bag[0].toString();
+      expect(shuffleBag.pop().toString()).to.equal(expected);
     }
-    console.log(shuffleBag.bagIndex);
-
   });
 
 
