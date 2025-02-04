@@ -24,3 +24,14 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+  deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - run: npm install
+        - run: npm run build
+        - run: npx gh-pages -d build --branch gh-pages
