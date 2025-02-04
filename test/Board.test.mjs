@@ -25,6 +25,23 @@ describe("Import custom board sate", () => {
   });
 });
 
+describe("Not possible drop test", () => {
+  test("start from the top middle", () => {
+    let board = Board.fromString(
+      `....T.....
+       ...TTT....
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+
+    expect(board.drop(Tetromino.T_SHAPE)).to.equal(false);
+    expect(board.currentBlock).to.equal(undefined);
+
+  });
+});
+
 describe("Board get cellAt test", () => {
   test("start from the top middle", () => {
     let board = Board.fromString(
