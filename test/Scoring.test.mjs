@@ -99,4 +99,19 @@ describe("Test scoring system", () => {
     board.clearLines();
     expect(scoringSystem.score).to.equal(400);
   });
+
+  test("3-2 line clear level 2", () => {
+    let scoringSystem = new ScoringSystem(2);
+    let board = Board.fromString(
+      `OOOOOOOOOO
+       TTTTTTTTTT
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+    );
+    board.addObserver(scoringSystem);
+    board.clearLines();
+    expect(scoringSystem.score).to.equal(1200);
+  });
 });
