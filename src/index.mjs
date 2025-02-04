@@ -14,8 +14,9 @@ function initGame() {
     tickDuration: 1000,
     nextTick: 0,
   };
-  game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
+  game.scoring = new ScoringSystem();
+  game.board.addObserver(game.scoring);
   game.board.onClearLine = (lineCount) => {
     game.scoring.linesCleared(lineCount);
   };
