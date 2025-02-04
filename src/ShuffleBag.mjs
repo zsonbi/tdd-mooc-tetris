@@ -15,6 +15,9 @@ export class ShuffleBag {
 
     return this.bag.shift();
   }
+  next(){
+    return this.pop();
+  }
   shuffle() {
     var tempBag = [...this.shapes];
     for (let i = 0; i < this.shapes.length; i++) {

@@ -33,7 +33,7 @@ function initGame() {
   document.addEventListener("keydown", (event) => {
     if (event.code === "Space") {
       for (let i = 0; i < game.rows; i++) {
-        game.board.moveDown();
+        game.board.move('d');
       }
     } else if (event.key === "z") {
       game.board.rotateLeft();

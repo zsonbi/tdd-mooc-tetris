@@ -1,4 +1,4 @@
-import { Tetromino } from "../src/Tetromino.mjs";
+import { Tetromino } from "./Tetromino.mjs";
 import { RotatingShape } from "./RotatingShape.mjs";
 
 export class Board {
@@ -29,6 +29,10 @@ export class Board {
         .split("\n")
         .map((row) => row.trim().split(""))
     );
+  }
+
+  cellAt(row, col){
+    return this.grid[row][col];
   }
 
   addObserver(observer) {
