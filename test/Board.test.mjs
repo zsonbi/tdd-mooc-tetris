@@ -25,10 +25,37 @@ describe("Import custom board sate", () => {
   });
 });
 
+describe("Board get cellAt test", () => {
+  test("start from the top middle", () => {
+    let board = Board.fromString(
+     `....T.....
+      ...TTT....
+      ..........
+      OOOOOOOOOO
+      TTTTTTTTTT
+      IIIIIIIIII`
+    );
+
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TTT....
+       ..........
+       OOOOOOOOOO
+       TTTTTTTTTT
+       IIIIIIIIII`
+    );
+
+    expect(board.cellAt(3,0)).to.equal('O');
+    expect(board.cellAt(4,0)).to.equal('T');
+
+
+  });
+});
+
 describe("shrink test on top", () => {
   test("shrink test", () => {
     let board = Board.fromString(
-      `....T.....
+       `....T.....
         ...TTT....
         ..........
         OOOOOOOOOO
@@ -50,7 +77,7 @@ describe("shrink test on top", () => {
 
   test("shrink test multiple lines", () => {
     let board = Board.fromString(
-      `....T.....
+       `....T.....
         ...TTT....
         ..........
         OOOOOOOOOO
