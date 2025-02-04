@@ -98,13 +98,18 @@ export class Board {
     if (typeof block === "string") {
       block = RotatingShape.fromString(block);
     }
-    this.currentBlock = block;
-    this.currentBlockHeight = 0;
-    if (this.currentBlock.type === 1 && this.currentBlock.rotateState == 0) {
-      this.currentBlockHeight--;
+    let height=0;
+    let colOffset = Math.floor(this.width / 2 - block.grid.length / 2);
+    if (block.type === 1 && block.rotateState == 0) 
+      height--;
+    if(!this.validate(height,colOffset,block)){
+      return false;
     }
-    this.currentColOffset = Math.floor(this.width / 2 - block.grid.length / 2);
+    this.currentColOffset = colOffset
+    this.currentBlockHeight=height;
+    this.currentBlock=block
     this.place(this.currentBlockHeight, this.currentColOffset, block);
+    return true;
   }
 
   hasFalling() {
